@@ -1,14 +1,18 @@
 <?php
 
-    require_once "CreadorConcretoA.php";
-    require_once "CreadorConcretoB.php";
+require_once 'FabricaDeCoches.php';
+require_once 'FabricaDeMotos.php';
+require_once 'FabricaDeCamiones.php';
 
-    // Crear instancias de los creadores
-    $creatorA = new CreadorConcretoA();
-    $creatorB = new CreadorConcretoB();
+$fabricaDeCoches = new FabricaDeCoches();
+$coche1 =$fabricaDeCoches->fabricarVehiculo();
+$coche1->probarVehiculo();
 
-    // Obtener los resultados de cada producto
-    $resultA = $creatorA->crearProducto();
-    $resultB = $creatorB->crearProducto();
-    
-?>
+$fabricaDeMotos = new FabricaDeMotos();
+$moto1 = $fabricaDeMotos->fabricarVehiculo();
+$moto1->probarVehiculo();
+
+$fabricaDeCamiones = new FabricaDeCamiones();
+$camion1 = $fabricaDeCamiones->fabricarVehiculo();
+$camion1->probarVehiculo();
+
