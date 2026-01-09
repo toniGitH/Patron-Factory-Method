@@ -22,9 +22,9 @@ class Concesionario {
      * Este método funciona con CUALQUIER tipo de vehículo
      * No necesitas venderCoche(), venderMoto(), venderAutobus()
      */
-    public function vender(): string {
+    public function venderVehiculo(): string {
 
-        return $this->fabrica->entregar();
+        return $this->fabrica->entregarVehiculo();
 
     }
 }

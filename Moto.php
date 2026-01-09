@@ -8,7 +8,9 @@ require_once 'Vehiculo.php';
 class Moto implements Vehiculo {
 
     public function probarVehiculo(): string {
+
         return "La moto funciona correctamente ...";
+        
     }
     
 }

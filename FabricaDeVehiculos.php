@@ -12,16 +12,16 @@ abstract class FabricaDeVehiculos {
      * FACTORY METHOD
      * Este método lo implementa cada fábrica concreta
      */
-    abstract protected function crear(): Vehiculo;
+    abstract protected function fabricarVehiculo(): Vehiculo;
     
     /**
      * TEMPLATE METHOD
      * Este método es IGUAL para todas las fábricas
      * Contiene el algoritmo completo de entrega
      */
-    public function entregar(): string {
+    public function entregarVehiculo(): string {
         // Aquí NO SÉ qué tipo de vehículo se crea
-        $vehiculo = $this->crear();
+        $vehiculo = $this->fabricarVehiculo();
         
         $resultado = "=== PROCESO DE ENTREGA ===\n";
         $resultado .= "1. Creando vehículo...\n";

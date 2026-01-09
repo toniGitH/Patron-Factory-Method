@@ -8,7 +8,9 @@ require_once 'Vehiculo.php';
 class Camion implements Vehiculo {
 
     public function probarVehiculo(): string {
+
         return "El camión funciona correctamente ...";
+        
     }
     
 }

@@ -14,8 +14,11 @@ echo "========================================\n\n";
 // ========================================
 echo "EJEMPLO 1: Concesionario de coches\n";
 echo str_repeat("-", 40) . "\n";
-$concesionarioCoches = new Concesionario(new FabricaDeCoches());
-echo $concesionarioCoches->vender();
+$concesionarioCoches = new Concesionario(new FabricaDeCoches);
+// La anterior sentencia equivale a estas otras dos:
+//$fabricaDeCoches = new FabricaDeCoches();
+//$concesionarioCoches = new Concesionario($fabricaDeCoches);
+echo $concesionarioCoches->venderVehiculo();
 echo "\n\n";
 
 // ========================================
@@ -24,32 +27,26 @@ echo "\n\n";
 echo "EJEMPLO 2: Concesionario de motos\n";
 echo str_repeat("-", 40) . "\n";
 $concesionarioMotos = new Concesionario(new FabricaDeMotos());
-echo $concesionarioMotos->vender();
+echo $concesionarioMotos->venderVehiculo();
 echo "\n\n";
 
 // ========================================
-// EJEMPLO 3: Concesionario de autobuses
-// ¡FÍJATE! Esta clase NO EXISTÍA antes
-// Solo he añadido Autobus.php y FabricaDeAutobuses.php
-// NO he modificado Concesionario.php
+// EJEMPLO 3: Concesionario de camiones
 // ========================================
-echo "EJEMPLO 3: Concesionario de autobuses (NUEVO)\n";
+echo "EJEMPLO 3: Concesionario de camiones\n";
 echo str_repeat("-", 40) . "\n";
 $concesionarioCamiones = new Concesionario(new FabricaDeCamiones());
-echo $concesionarioCamiones->vender();
+echo $concesionarioCamiones->venderVehiculo();
 echo "\n\n";
 
-// ========================================
-// RESUMEN DE LA VENTAJA
-// ========================================
-echo "========================================\n";
-echo "RESUMEN DE LA VENTAJA:\n";
-echo "========================================\n";
-echo "✓ La clase Concesionario NO CAMBIÓ\n";
-echo "✓ Solo añadí 2 archivos nuevos:\n";
-echo "  - Camion.php\n";
-echo "  - FabricaDeCamiones.php\n";
-echo "✓ El método vender() funciona para CUALQUIER vehículo\n";
-echo "✓ NO necesito crear métodos venderCoche(), venderMoto(), venderAutobus()\n";
-echo "✓ Si mañana quiero vender Camiones, solo añado 2 archivos más\n";
+echo "============================================\n";
+echo "QUÉ VENTAJA APORTA EL PATRÓN FACTORY METHOD:\n";
+echo "============================================\n";
+echo "Supongamos que mañana quiero vender autobuses\n";
+echo "✓ Solo tendría que crear 2 archivos nuevos:\n";
+echo "  - Autobus.php\n";
+echo "  - FabricaDeAutobuses.php\n";
+echo "✓ NO TENGO QUE CAMBIAR NADA EN LA CLASE Concesionario\n";
+echo "✓ El método venderVehiculo() funciona para CUALQUIER vehículo\n";
+echo "✓ NO necesito crear métodos venderCoche(), venderMoto(), venderCamion(), venderAutobus(), etc...\n";
 echo "✓ El código de Concesionario está DESACOPLADO de los tipos concretos\n";

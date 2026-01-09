@@ -5,12 +5,14 @@ require_once 'Coche.php';
 
 /**
  * Clase FabricaDeCoches - Fábrica concreta
- * Solo implementa el método crear() para devolver un Coche
+ * Solo implementa el método fabricarVehiculo() para crear y devolver una instancia de Coche
  */
 class FabricaDeCoches extends FabricaDeVehiculos {
     
-    protected function crear(): Vehiculo {
+    protected function fabricarVehiculo(): Vehiculo {
+
         return new Coche();
+        
     }
 
 }
