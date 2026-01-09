@@ -11,10 +11,12 @@ echo "========================================\n\n";
 
 // ========================================
 // EJEMPLO 1: Concesionario de coches
+// Se vende un coche Seat de color azul
 // ========================================
 echo "EJEMPLO 1: Concesionario de coches\n";
+echo "Se vende un coche Seat de color azul\n";
 echo str_repeat("-", 40) . "\n";
-$concesionarioCoches = new Concesionario(new FabricaDeCoches);
+$concesionarioCoches = new Concesionario(new FabricaDeCoches("Seat", "azul"));
 // La anterior sentencia equivale a estas otras dos:
 //$fabricaDeCoches = new FabricaDeCoches();
 //$concesionarioCoches = new Concesionario($fabricaDeCoches);
@@ -23,26 +25,30 @@ echo "\n\n";
 
 // ========================================
 // EJEMPLO 2: Concesionario de motos
+// Se vende una moto Yamaha de color rojo
 // ========================================
 echo "EJEMPLO 2: Concesionario de motos\n";
+echo "Se vende una moto Yamaha de color rojo\n";
 echo str_repeat("-", 40) . "\n";
-$concesionarioMotos = new Concesionario(new FabricaDeMotos());
+$concesionarioMotos = new Concesionario(new FabricaDeMotos("Yamaha", "rojo"));
 echo $concesionarioMotos->venderVehiculo();
 echo "\n\n";
 
 // ========================================
 // EJEMPLO 3: Concesionario de camiones
+// Se vende un camión Scania de color verde
 // ========================================
 echo "EJEMPLO 3: Concesionario de camiones\n";
+echo "Se vende un camión Scania de color verde\n";
 echo str_repeat("-", 40) . "\n";
-$concesionarioCamiones = new Concesionario(new FabricaDeCamiones());
+$concesionarioCamiones = new Concesionario(new FabricaDeCamiones("Scania", "verde"));
 echo $concesionarioCamiones->venderVehiculo();
 echo "\n\n";
 
 echo "============================================\n";
 echo "QUÉ VENTAJA APORTA EL PATRÓN FACTORY METHOD:\n";
 echo "============================================\n";
-echo "Supongamos que mañana quiero vender autobuses\n";
+echo "Supongamos que mañana quiero empezar a vender también autobuses\n";
 echo "✓ Solo tendría que crear 2 archivos nuevos:\n";
 echo "  - Autobus.php\n";
 echo "  - FabricaDeAutobuses.php\n";

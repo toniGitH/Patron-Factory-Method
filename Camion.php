@@ -7,9 +7,18 @@ require_once 'Vehiculo.php';
  */
 class Camion implements Vehiculo {
 
+    protected string $tipoVehiculo = "Camion";
+    protected string $marcaVehiculo;
+    protected string $colorVehiculo;
+
+    public function __construct(string $marcaVehiculo, string $colorVehiculo) {
+        $this->marcaVehiculo = $marcaVehiculo;
+        $this->colorVehiculo = $colorVehiculo;
+    }
+
     public function probarVehiculo(): string {
 
-        return "El camión funciona correctamente ...";
+        return "El $this->tipoVehiculo $this->marcaVehiculo de color $this->colorVehiculo funciona correctamente ...";
         
     }
     

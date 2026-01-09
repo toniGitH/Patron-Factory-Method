@@ -25,9 +25,9 @@ abstract class FabricaDeVehiculos {
         
         $resultado = "=== PROCESO DE ENTREGA ===\n";
         $resultado .= "1. Creando vehículo...\n";
-        $resultado .= "2. Vehículo creado: " . $vehiculo->probarVehiculo() . "\n";
-        $resultado .= "3. Verificando...\n";
-        $resultado .= "4. ¡Listo para entregar!\n";
+        $resultado .= "2. Vehículo creado...\n";
+        $resultado .= "3. Verificando vehículo creado: " . $vehiculo->probarVehiculo() . "\n";
+        $resultado .= "4. ¡Vehículo listo para entregar!\n";
         
         return $resultado;
     }
