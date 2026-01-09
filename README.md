@@ -1,13 +1,22 @@
-# El Patrón Factory Method (Método Fábrica)
+<a name="top"></a>
 
-## 1. Explicación del Patrón
+# 1️🏭 El patrón Factory Method - Guía Completa
 
-### ¿En qué consiste?
+Repositorio creado para explicar el patrón Factory Method y su implementación mediante un ejemplo práctico en PHP.
+
+<br>
+
+## 📖 Tabla de contenidos
+
+
+## 🔎 El patrón Factory Method
+
+### 🎯 ¿En qué consiste?
 El patrón **Factory Method** es un patrón de diseño creacional que resuelve el problema de crear objetos sin especificar la clase exacta del objeto que se creará.
 
 En lugar de crear los vehículos directamente con el operador `new Coche()` (lo cual obligaría a tu código a conocer todos los detalles de cada coche), este patrón sugiere definir un "método fábrica" en una clase base. Las distintas fábricas hijas son las que deciden qué vehículo concreto crear.
 
-### ¿Qué problema trata de resolver?
+### 🔧 ¿Qué problema trata de resolver?
 Imagina que estás desarrollando el software para un **Concesionario**. Inicialmente, tu empresa solo vende **Coches**. Todo tu código está diseñado para trabajar con la clase `Coche`.
 
 El problema surge cuando el negocio crece y decides empezar a vender **Motos**. Si tu código está lleno de referencias directas a `new Coche()`, tendrías que modificar toda la aplicación para añadir `if` y `else` por todas partes para decidir si crear un coche o una moto. Y si mañana quieres vender **Camiones**, tendrías que volver a cambiar todo el código del concesionario.
@@ -88,31 +97,37 @@ $concesionarioMotos = new Concesionario($fabricaDeMotos);
 echo $concesionarioMotos->venderVehiculo();
 ```
 
-### La Clave: Inyección e Inversión de Dependencias
+### 🗝️ La Clave: Inyección e Inversión de Dependencias
 La utilidad de este patrón reside en dos conceptos avanzados:
 1.  **Inversión de Dependencias (DIP):** Sin el patrón, el `Concesionario` (módulo de alto nivel) depende de `Coche` y `Moto` (detalles de bajo nivel). Con el patrón, ambos dependen de abstracciones (`FabricaDeVehiculos`, `Vehiculo`).
 2.  **Inyección de Dependencias:** Le "inyectamos" la fábrica correcta al `Concesionario` en su constructor. Así, el `Concesionario` no decide qué vende; **nosotros se lo decimos desde fuera**.
 
-### Nota Importante: Cambio de Lógica
+### ⚠️ Nota Importante: Cambio de Lógica
 Es crucial entender que implementar este patrón **cambia la lógica interna de tu clase**.
 *   **Sin patrón:** Tu clase `Concesionario` es un "hombre orquesta": decide, crea y gestiona. Sus métodos contienen toda la lógica de control (`if/else`, `new`, llamadas manuales).
 *   **Con patrón:** Tu clase `Concesionario` se convierte en un "gerente": **delega** el trabajo. Sus métodos se simplifican drásticamente porque confían en que la fábrica inyectada sabrá qué hacer.
 
-### ¿Qué ventajas tiene?
+### 💡 ¿Qué ventajas ofrece?
 1.  **Desacoplamiento:** El **Concesionario** (quien vende) no necesita saber si está vendiendo un Coche, una Moto o un Camión. Solo sabe que vende un "Vehículo".
 2.  **Principio Open/Closed (Abierto/Cerrado):** Puedes empezar a vender nuevos tipos de vehículos (ej. Autobuses) sin tocar ni una línea del código del Concesionario que ya funciona.
 3.  **Principio de Responsabilidad Única:** La lógica de "cómo se crea un camión" está aislada en su propia fábrica, no mezclada con la lógica de venta.
 
+<br>
+
+[🔝](#top)
+
 ---
 
-## 2. Aplicación en este Ejemplo Concreto
+<br>
+
+## 🧪 Ejemplo de implementación: Concesionario de vehículos
 
 En este proyecto hemos implementado exactamente esa solución para el **Concesionario**.
 
-### El Problema Resuelto
+### 🔎 El Problema a resolver
 Queríamos un `Concesionario` capaz de vender cualquier tipo de vehículo (Coche, Moto, Camión) y realizar procesos sobre ellos sin tener que programar lógica específica para cada uno (ej: `if ($tipo == 'coche') ...`).
 
-### Visualización de las Ventajas
+### 💡 Ventajas obtenidas
 1.  **Desacoplamiento en acción:**
     Si revisas la clase `Concesionario.php`, verás que **en ningún lugar aparece la palabra `Coche` o `Moto`**. 
     ```php
@@ -127,9 +142,15 @@ Queríamos un `Concesionario` capaz de vender cualquier tipo de vehículo (Coche
 3.  **Lógica Común Centralizada:**
     La clase abstracta `FabricaDeVehiculos` define el proceso de entrega (`entregarVehiculo`). Gracias a esto, la lógica de *"Crear -> Verificar -> Entregar"* se define una sola vez y funciona automáticamente para motos, coches, camiones y cualquier otro tipo de vehículo que queramos añadir.
 
+<br>
+
+[🔝](#top)
+
 ---
 
-## 3. Elementos Obligatorios que debe cumplir el patrón Factory Method
+<br>
+
+## 📝 Elementos Obligatorios que debe cumplir el patrón Factory Method
 
 Para que una implementación sea considerada **Factory Method**, debe cumplir estrictamente con cuatro participantes principales. Si falta alguno, probablemente no sea un Factory Method puro.
 
@@ -153,7 +174,7 @@ Son las clases que sobrescriben o implementan el método de fábrica.
 *   Es aquí donde realmente ocurre el `new Coche()` o `new Moto()`.
 *   Oculta la complejidad de la instanciación al resto del sistema.
 
-### Comparativa: Teoría vs Práctica
+### 📝 Comparativa: Teoría vs Práctica
 
 | Elemento del Patrón (Teoría) | En este Proyecto (Práctica) | Función que cumple |
 | :--- | :--- | :--- |
@@ -161,3 +182,67 @@ Son las clases que sobrescriben o implementan el método de fábrica.
 | **Producto concreto (clase que implementa la inerfaz o hereda de la clase abstracta)** | `Coche`, `Moto`, `Camion` | Implementan la versión específica de cada vehículo. |
 | **Creador genérico (Clase Abstracta)** | `abstract class FabricaDeVehiculos` | Declara el método abstracto `fabricarVehiculo()` y contiene la lógica compartida (`entregarVehiculo`). |
 | **Creador concreto (clase que hereda del Creador genérico)** | `FabricaDeCoches`, `FabricaDeMotos`, etc. | Deciden qué clase instanciar. Por ejemplo, `FabricaDeMotos` sabe que debe hacer `new Moto()`. |
+
+
+
+<br>
+
+[🔝](#top)
+
+---
+
+<br>
+
+## 🚀 Cómo ejecutar la aplicación
+
+1. Crea la carpeta del proyecto (por ejemplo, patrones/factory-method) dentro de la carpeta htdocs (o equivalente según la versión de XAMPP y sistema operativo que uses).
+2. Guarda en esa carpeta los archivos PHP y CSS.
+
+#### 📍 Para ejecutarlo mediante XAMPP:
+
+3. Arranca XAMPP.
+4. Accede a index.php desde tu navegador (por ejemplo: http://localhost/patrones/factory-method/index.php)
+
+#### 📍 Para ejecutarlo usando el servidor web interno de PHP
+
+PHP trae un servidor web ligero que sirve para desarrollo. No necesitas instalar Apache ni XAMPP.
+
+3. Abre la terminal y navega a la carpeta de tu proyecto:
+
+```bash
+cd ~/Documentos/htdocs/patrones/factory-method
+```
+4. Dentro de esa ubicación, ejecuta:
+
+```bash
+php -S localhost:8000
+```
+
+>💡
+>
+> No es obligatorio usar el puerto 8000, puedes usar el que desees, por ejemplo, el 8001.
+
+Con esto, lo que estás haciendo es crear un servidor web php (cuya carpeta raíz es la carpeta seleccionada), que está escuchando en el puerto 8000 (o en el que hayas elegido).
+
+>💡
+>
+> Si quisieras, podrías crear simultáneamente tantos servidores como proyectos tengas en tu ordenador, siempre y cuando cada uno estuviera escuchando en un puerto diferente (8001, 8002, ...).
+
+5. Ahora, abre tu navegador y accede a http://localhost:8000
+
+Ya podrás visualizar el documento index.php con toda la información del ejemplo.
+
+>💡
+>
+> No es necesario indicar `http://localhost:8000/index.php` porque el servidor va a buscar dentro de la carpeta raíz (en este caso, en Documentos/htdocs/patrones/factory-method), un archivo index.php o index.html de forma automática. Si existe, lo sirve como página principal.
+>
+> Por eso, estas dos URLs funcionan igual:
+>
+> http://localhost:8000
+>
+> http://localhost:8000/index.php
+
+
+<br>
+
+[🔝](#top)
