@@ -18,7 +18,7 @@ echo "Se vende un coche Seat de color azul\n";
 echo str_repeat("-", 40) . "\n";
 $concesionarioCoches = new Concesionario(new FabricaDeCoches("Seat", "azul"));
 // La anterior sentencia equivale a estas otras dos:
-//$fabricaDeCoches = new FabricaDeCoches();
+//$fabricaDeCoches = new FabricaDeCoches("Seat", "azul");
 //$concesionarioCoches = new Concesionario($fabricaDeCoches);
 echo $concesionarioCoches->venderVehiculo();
 echo "\n\n";
