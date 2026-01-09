@@ -12,8 +12,10 @@ class Moto implements Vehiculo {
     protected string $colorVehiculo;
 
     public function __construct(string $marcaVehiculo, string $colorVehiculo) {
+
         $this->marcaVehiculo = $marcaVehiculo;
         $this->colorVehiculo = $colorVehiculo;
+        
     }
 
     public function probarVehiculo(): string {

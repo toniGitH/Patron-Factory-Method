@@ -13,13 +13,17 @@ class FabricaDeCamiones extends FabricaDeVehiculos {
     protected string $colorVehiculo;
     
     public function __construct(string $marcaVehiculo, string $colorVehiculo) {
+
         $this->marcaVehiculo = $marcaVehiculo;
         $this->colorVehiculo = $colorVehiculo;
+
     }
     
     // Este es el FACTORY METHOD, heredado de FabricaDeVehiculos, pero que en esta fábrica concreta (FabricaDeCamiones) se implementa para crear y devolver una instancia de Camion.
     protected function fabricarVehiculo(): Vehiculo {
+
         return new Camion($this->marcaVehiculo, $this->colorVehiculo);
+        
     }
 
     // protected function entregarVehiculo(): string {}

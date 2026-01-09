@@ -20,9 +20,11 @@ abstract class FabricaDeVehiculos {
      * Contiene el algoritmo completo de entrega
      */
     public function entregarVehiculo(): string {
+
         // Aquí NO SÉ qué tipo de vehículo se crea
         $vehiculo = $this->fabricarVehiculo();
         
+        // Resto de lógica de entrega del vehículo
         $resultado = "=== PROCESO DE ENTREGA ===\n";
         $resultado .= "1. Creando vehículo...\n";
         $resultado .= "2. Vehículo creado...\n";
