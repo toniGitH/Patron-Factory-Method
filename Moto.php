@@ -11,10 +11,6 @@ class Moto extends Vehiculo {
 
     // Constructor heredado de Vehiculo
 
-    public function probarVehiculo(): string {
-
-        return "La $this->tipoVehiculo $this->marcaVehiculo de color $this->colorVehiculo funciona correctamente ...";
-        
-    }
+    // probarVehiculo() heredado de Vehiculo
     
 }
