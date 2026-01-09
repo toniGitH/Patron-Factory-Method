@@ -5,16 +5,11 @@ require_once 'Vehiculo.php';
 /**
  * Clase Camion - Vehículo concreto
  */
-class Camion implements Vehiculo {
+class Camion extends Vehiculo {
 
     protected string $tipoVehiculo = "Camion";
-    protected string $marcaVehiculo;
-    protected string $colorVehiculo;
 
-    public function __construct(string $marcaVehiculo, string $colorVehiculo) {
-        $this->marcaVehiculo = $marcaVehiculo;
-        $this->colorVehiculo = $colorVehiculo;
-    }
+    // Constructor heredado de Vehiculo
 
     public function probarVehiculo(): string {
 
