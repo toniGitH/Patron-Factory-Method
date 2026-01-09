@@ -5,54 +5,75 @@ require_once 'FabricaDeCoches.php';
 require_once 'FabricaDeMotos.php';
 require_once 'FabricaDeCamiones.php';
 
-echo "========================================\n";
-echo "EJEMPLO SIMPLE DEL PATRÓN FACTORY METHOD\n";
-echo "========================================\n\n";
+// ========================================
+// 1. LÓGICA DE APLICACIÓN
+// ========================================
 
-// ========================================
-// EJEMPLO 1: Concesionario de coches
-// Se vende un coche Seat de color azul
-// ========================================
-echo "EJEMPLO 1: Concesionario de coches\n";
-echo "Se vende un coche Seat de color azul\n";
-echo str_repeat("-", 40) . "\n";
+// EJEMPLO 1: Procesar venta de coche
 $concesionarioCoches = new Concesionario(new FabricaDeCoches("Seat", "azul"));
-// La anterior sentencia equivale a estas otras dos:
-//$fabricaDeCoches = new FabricaDeCoches("Seat", "azul");
-//$concesionarioCoches = new Concesionario($fabricaDeCoches);
-echo $concesionarioCoches->venderVehiculo();
-echo "\n\n";
+$ventaCoche = $concesionarioCoches->venderVehiculo();
 
-// ========================================
-// EJEMPLO 2: Concesionario de motos
-// Se vende una moto Yamaha de color rojo
-// ========================================
-echo "EJEMPLO 2: Concesionario de motos\n";
-echo "Se vende una moto Yamaha de color rojo\n";
-echo str_repeat("-", 40) . "\n";
+// EJEMPLO 2: Procesar venta de moto
 $concesionarioMotos = new Concesionario(new FabricaDeMotos("Yamaha", "rojo"));
-echo $concesionarioMotos->venderVehiculo();
-echo "\n\n";
+$ventaMoto = $concesionarioMotos->venderVehiculo();
+
+// EJEMPLO 3: Procesar venta de camión (con sintaxis alternativa)
+$fabricaDeCamiones = new FabricaDeCamiones("Scania", "verde");
+$concesionarioCamiones = new Concesionario($fabricaDeCamiones);
+$ventaCamion = $concesionarioCamiones->venderVehiculo();
+
 
 // ========================================
-// EJEMPLO 3: Concesionario de camiones
-// Se vende un camión Scania de color verde
+// 2. LÓGICA DE PRESENTACIÓN (Datos para la vista)
 // ========================================
-echo "EJEMPLO 3: Concesionario de camiones\n";
-echo "Se vende un camión Scania de color verde\n";
-echo str_repeat("-", 40) . "\n";
-$concesionarioCamiones = new Concesionario(new FabricaDeCamiones("Scania", "verde"));
-echo $concesionarioCamiones->venderVehiculo();
-echo "\n\n";
+$resultados = [];
 
-echo "============================================\n";
-echo "QUÉ VENTAJA APORTA EL PATRÓN FACTORY METHOD:\n";
-echo "============================================\n";
-echo "Supongamos que mañana quiero empezar a vender también autobuses\n";
-echo "✓ Solo tendría que crear 2 archivos nuevos:\n";
-echo "  - Autobus.php\n";
-echo "  - FabricaDeAutobuses.php\n";
-echo "✓ NO TENGO QUE CAMBIAR NADA EN LA CLASE Concesionario\n";
-echo "✓ El método venderVehiculo() funciona para CUALQUIER vehículo\n";
-echo "✓ NO necesito crear métodos venderCoche(), venderMoto(), venderCamion(), venderAutobus(), etc...\n";
-echo "✓ El código de Concesionario está DESACOPLADO de los tipos concretos\n";
+$resultados[] = [
+    'titulo' => 'EJEMPLO 1: Concesionario de coches',
+    'descripcion' => 'Se vende un coche Seat de color azul',
+    'salida' => $ventaCoche
+];
+
+$resultados[] = [
+    'titulo' => 'EJEMPLO 2: Concesionario de motos',
+    'descripcion' => 'Se vende una moto Yamaha de color rojo',
+    'salida' => $ventaMoto
+];
+
+$resultados[] = [
+    'titulo' => 'EJEMPLO 3: Concesionario de camiones',
+    'descripcion' => 'Se vende un camión Scania de color verde',
+    'salida' => $ventaCamion
+];
+
+// Texto de ventajas
+$ventajas = [
+    "Solo tendría que crear 2 archivos nuevos: Autobus.php y FabricaDeAutobuses.php",
+    "NO TENGO QUE CAMBIAR NADA EN LA CLASE Concesionario",
+    "El método venderVehiculo() funciona para CUALQUIER vehículo",
+    "NO necesito crear métodos venderCoche(), venderMoto(), venderCamion(), venderAutobus(), etc...",
+    "El código de Concesionario está DESACOPLADO de los tipos concretos"
+];
+
+// Si el archivo se ejecuta directamente (CLI) y no es un include
+if (count(debug_backtrace()) === 0) {
+    echo "========================================\n";
+    echo "EJEMPLO SIMPLE DEL PATRÓN FACTORY METHOD\n";
+    echo "========================================\n\n";
+
+    foreach ($resultados as $resultado) {
+        echo $resultado['titulo'] . "\n";
+        echo $resultado['descripcion'] . "\n";
+        echo str_repeat("-", 40) . "\n";
+        echo $resultado['salida'];
+        echo "\n\n";
+    }
+
+    echo "============================================\n";
+    echo "QUÉ VENTAJA APORTA EL PATRÓN FACTORY METHOD:\n";
+    echo "============================================\n";
+    echo "Supongamos que mañana quiero empezar a vender también autobuses\n";
+    foreach ($ventajas as $ventaja) {
+        echo "✓ " . $ventaja . "\n";
+    }
+}
