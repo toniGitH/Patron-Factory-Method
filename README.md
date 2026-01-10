@@ -1,6 +1,6 @@
 <a name="top"></a>
 
-# 1️🏭 El patrón Factory Method - Guía Completa
+# 🏭 El patrón Factory Method - Guía Completa
 
 Repositorio creado para explicar el patrón Factory Method y su implementación mediante un ejemplo práctico en PHP.
 
@@ -8,6 +8,39 @@ Repositorio creado para explicar el patrón Factory Method y su implementación 
 
 ## 📖 Tabla de contenidos
 
+<details>
+  <summary>Mostrar contenidos</summary>
+  <br>
+  <ul>
+    <li>🔎 <a href="#-el-patrón-factory-method">El patrón Factory Method</a>
+      <ul>
+        <li>🎯 <a href="#-en-qué-consiste">¿En qué consiste?</a></li>
+        <li>🔧 <a href="#-qué-problema-trata-de-resolver">¿Qué problema trata de resolver?</a></li>
+        <li>❌ <a href="#-código-sin-patrón-el-problema">CÓDIGO SIN PATRÓN (El problema)</a></li>
+        <li>✅ <a href="#-código-con-patrón-factory-method-la-solución">CÓDIGO CON PATRÓN FACTORY METHOD (La solución)</a></li>
+        <li>🗝️ <a href="#-la-clave-inyección-e-inversión-de-dependencias">La Clave: Inyección e Inversión de Dependencias</a></li>
+        <li>⚠️ <a href="#-nota-importante-cambio-de-lógica">Nota Importante: Cambio de Lógica</a></li>
+        <li>💡 <a href="#-qué-ventajas-ofrece">¿Qué ventajas ofrece?</a></li>
+      </ul>
+    </li>
+    <li>🧪 <a href="#-ejemplo-de-implementación-concesionario-de-vehículos">Ejemplo de implementación: Concesionario de vehículos</a>
+      <ul>
+        <li>🔎 <a href="#-el-problema-a-resolver">El Problema a resolver</a></li>
+        <li>💡 <a href="#-ventajas-obtenidas">Ventajas obtenidas</a></li>
+      </ul>
+    </li>
+    <li>📝 <a href="#-elementos-obligatorios-que-debe-cumplir-el-patrón-factory-method">Elementos Obligatorios que debe cumplir el patrón Factory Method</a>
+        <ul>
+            <li>📝 <a href="#-comparativa-teoría-vs-práctica">Comparativa: Teoría vs Práctica</a></li>
+        </ul>
+    </li>
+    <li>🚀 <a href="#-cómo-ejecutar-la-aplicación">Cómo ejecutar la aplicación</a></li>
+  </ul>
+</details>
+
+---
+
+<br>
 
 ## 🔎 El patrón Factory Method
 
@@ -195,24 +228,44 @@ Son las clases que sobrescriben o implementan el método de fábrica.
 
 ## 🚀 Cómo ejecutar la aplicación
 
-1. Crea la carpeta del proyecto (por ejemplo, patrones/factory-method) dentro de la carpeta htdocs (o equivalente según la versión de XAMPP y sistema operativo que uses).
-2. Guarda en esa carpeta los archivos PHP y CSS.
+Tienes dos alternativas para visualizar el resultado de la aplicación:
+- visualizando los resultados mediante el navegador (con XAMPP o con un servidor web local).
+- directamente desde la terminal, en texto plano, ejecutando el archivo principal, `main.php`.
+
+En cualquiera de los dos casos, primero debes:
+1. Crear la carpeta del proyecto (por ejemplo, patrones/factory-method) dentro de la carpeta htdocs (o equivalente según la versión de XAMPP y sistema operativo que uses).
+2. Guardar en esa carpeta los archivos PHP y CSS.
+
+
+#### 🖥️ Para ejecutarlo mediante la Terminal:
+
+1. Abre la terminal y navega a la carpeta de tu proyecto, por ejemplo:
+
+```bash
+cd ~/Documentos/htdocs/patrones/factory-method
+```
+
+2. Ejecuta, desde esa ubicación, el archivo main.php:
+
+```bash
+php main.php
+```
 
 #### 📍 Para ejecutarlo mediante XAMPP:
 
-3. Arranca XAMPP.
-4. Accede a index.php desde tu navegador (por ejemplo: http://localhost/patrones/factory-method/index.php)
+1. Arranca XAMPP.
+2. Accede a index.php desde tu navegador (por ejemplo: http://localhost/patrones/factory-method/index.php)
 
 #### 📍 Para ejecutarlo usando el servidor web interno de PHP
 
 PHP trae un servidor web ligero que sirve para desarrollo. No necesitas instalar Apache ni XAMPP.
 
-3. Abre la terminal y navega a la carpeta de tu proyecto:
+1. Abre la terminal y navega a la carpeta de tu proyecto:
 
 ```bash
 cd ~/Documentos/htdocs/patrones/factory-method
 ```
-4. Dentro de esa ubicación, ejecuta:
+2. Dentro de esa ubicación, ejecuta:
 
 ```bash
 php -S localhost:8000
@@ -228,7 +281,7 @@ Con esto, lo que estás haciendo es crear un servidor web php (cuya carpeta raí
 >
 > Si quisieras, podrías crear simultáneamente tantos servidores como proyectos tengas en tu ordenador, siempre y cuando cada uno estuviera escuchando en un puerto diferente (8001, 8002, ...).
 
-5. Ahora, abre tu navegador y accede a http://localhost:8000
+3. Ahora, abre tu navegador y accede a http://localhost:8000
 
 Ya podrás visualizar el documento index.php con toda la información del ejemplo.
 
