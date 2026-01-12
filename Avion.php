@@ -2,11 +2,11 @@
 
     require_once 'MedioDeTransporte.php';
 
-    class Barco implements MedioDeTransporte {
+    class Avion implements MedioDeTransporte {
 
         private string $codigoImportacion;
         private string $comunicacionAduanas;
-        private string $contenedor;
+        private string $numeroVuelo;
 
         private function generarCodigoImportacion(): string {
             $this->codigoImportacion = 'IMP-' . rand(1000, 9999);
@@ -18,17 +18,17 @@
             return $this->comunicacionAduanas;
         }
 
-        private function asignarContenedor(): string {
-            $this->contenedor = '#' . rand(1000, 9999);
-            return $this->contenedor;
+        private function asignarVuelo(): string {
+            $this->numeroVuelo = 'IBERIA-' . rand(1000, 9999);
+            return $this->numeroVuelo;
         }
 
         // Implementación del método declarado en la interface MedioDeTransporte
         public function entregarPaquete(): string {
             $codigo = $this->generarCodigoImportacion();
             $aduanas = $this->comunicarEnAduanas();
-            $contenedor = $this->asignarContenedor();
+            $vuelo = $this->asignarVuelo();
 
-            return "Envio por BARCO: Código importación $codigo $aduanas y mercancía cargada en el contenedor $contenedor.";
+            return "Envio por AVIÓN: Código importación $codigo $aduanas y mercancía embarcada en el vuelo $vuelo.";
         }
     }
