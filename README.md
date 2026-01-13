@@ -376,7 +376,7 @@ Con esto, lo que estás haciendo es crear un servidor web php (cuya carpeta raí
 
 Ya podrás visualizar el documento index.php con toda la información del ejemplo.
 
->💡 No es necesario indicar `http://localhost:8000/index.php` porque el servidor va a buscar dentro de la carpeta raíz (en este caso, en Documentos/htdocs/patrones/factory-method), un archivo index.php o index.html de forma automática. Si existe, lo sirve como página principal.
+>💡 No es necesario indicar `http://localhost:8000/index.php` porque el servidor va a buscar dentro de la carpeta raíz (en este caso, en Documentos/.../patrones/factory-method), un archivo index.php o index.html de forma automática. Si existe, lo sirve como página principal.
 >
 > Por eso, estas dos URLs funcionan igual:
 >
