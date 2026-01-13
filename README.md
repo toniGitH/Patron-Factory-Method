@@ -327,7 +327,7 @@ Tienes dos alternativas para visualizar el resultado de la aplicación:
 - directamente desde la **terminal**, en texto plano, ejecutando el archivo principal, `main.php`.
 
 En cualquiera de los dos casos, primero debes:
-1. Crear la carpeta del proyecto (por ejemplo, patrones/factory-method) dentro de la carpeta htdocs (o equivalente según la versión de XAMPP y sistema operativo que uses).
+1. Crear la carpeta del proyecto (por ejemplo, patrones/factory-method). 
 2. Guardar en esa carpeta los archivos PHP y CSS.
 
 
@@ -336,7 +336,7 @@ En cualquiera de los dos casos, primero debes:
 1. Abre la terminal y navega a la carpeta de tu proyecto, por ejemplo:
 
 ```bash
-cd ~/Documentos/htdocs/patrones/factory-method
+cd ~/Documentos/Proyectos/patrones/factory-method
 ```
 
 2. Ejecuta, desde esa ubicación, el archivo main.php:
@@ -347,8 +347,9 @@ php main.php
 
 #### 🌐 Para ejecutarlo mediante XAMPP:
 
-1. Arranca XAMPP.
-2. Accede a index.php desde tu navegador (por ejemplo: http://localhost/patrones/factory-method/index.php)
+1. Mueve la carpeta del proyecto a la carpeta htdocs (o equivalente según la versión de XAMPP y sistema operativo que uses).
+2. Arranca XAMPP.
+3. Accede a index.php desde tu navegador (por ejemplo: http://localhost/patrones/factory-method/index.php)
 
 #### 🌐 Para ejecutarlo usando el servidor web interno de PHP
 
@@ -357,7 +358,7 @@ PHP trae un servidor web ligero que sirve para desarrollo. No necesitas instalar
 1. Abre la terminal y navega a la carpeta de tu proyecto:
 
 ```bash
-cd ~/Documentos/htdocs/patrones/factory-method
+cd ~/Documentos/.../patrones/factory-method
 ```
 2. Dentro de esa ubicación, ejecuta:
 
