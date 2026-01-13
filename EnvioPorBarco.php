@@ -5,7 +5,7 @@
 
     class EnvioPorBarco extends Envio {
 
-        protected function crearMedioDeTransporte(): Barco {
+        protected function crearMedioDeTransporte(): MedioDeTransporte {
             return new Barco();
         }
     }

@@ -5,7 +5,7 @@
 
     class EnvioPorAvion extends Envio {
 
-        protected function crearMedioDeTransporte(): Avion {
+        protected function crearMedioDeTransporte(): MedioDeTransporte {
             return new Avion();
         }
     }

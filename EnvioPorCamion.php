@@ -5,7 +5,7 @@
 
     class EnvioPorCamion extends Envio {
 
-        protected function crearMedioDeTransporte(): Camion {
+        protected function crearMedioDeTransporte(): MedioDeTransporte {
             return new Camion();
         }
     }
