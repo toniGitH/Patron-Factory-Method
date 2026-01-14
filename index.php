@@ -17,9 +17,9 @@
         <section class="results-grid">
             <?php foreach ($resultados as $resultado): ?>
                 <article class="card">
-                    <h2><?php echo htmlspecialchars($resultado['titulo']); ?></h2>
+                    <h2><?php echo htmlspecialchars($resultado['identificación_del_pedido']); ?></h2>
                     <div class="description">
-                        <?php echo htmlspecialchars($resultado['descripcion']); ?>
+                        <?php echo htmlspecialchars($resultado['descripcion_del_pedido']); ?>
                     </div>
                     <div class="output">
                         <?php echo nl2br(htmlspecialchars($resultado['salida'])); ?>
