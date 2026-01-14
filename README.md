@@ -270,15 +270,6 @@ Es la clase base, la clase Creadora, que en nuestro caso es *abstract* y que con
 - una lógica de negocio común *procesarEnvio()*, que depende de un objeto Producto (ProductoConcreto)
 - el método fábrica *crearMedioDeTransporte()* que es la responsable de crear los objetos Producto (ProductoConcreto), y que es abstracto (no está implementado aquí)
 
-### 👉🏼 Identificación de los principales archivos del ejemplo
-
-#### ➡️ Envio.php
-
-Es la clase base, la clase Creadora, que en nuestro caso es *abstract* y que contiene:
-
-- una lógica de negocio común *procesarEnvio()*, que depende de un objeto Producto (ProductoConcreto)
-- el método fábrica *crearMedioDeTransporte()* que es la responsable de crear los objetos Producto (ProductoConcreto), y que es abstracto (no está implementado aquí)
-
 #### ➡️🚚 EnvioPorCamion.php - ➡️🚢 EnvioPorBarco.php - ➡️✈️ EnvioPorAvion.php
 
 Son las subclases, herederas de la clase base *Envio*. Tanbién llamadas clases de tipo ClaseCreadora.
