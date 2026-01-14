@@ -288,7 +288,7 @@ Estas subclases:
 - implementan el método fábrica declarado en la clase base
 - heredan el método *procesarEnvio()* declarado e implementado en la clase base
 
-#### 🔗 MedioDeTransporte.php
+#### 🔌 MedioDeTransporte.php
 
 Representa una abstracción de ese objeto Producto.
 
@@ -304,9 +304,26 @@ Son las diferentes clases que representan a cada uno de los objetos de tipo Prod
 
 Estas clases implementan el método declarado en la Interface *MedioDeTransporte*.
 
+#### 👩🏼‍💻 GestorDeEnvios.php
+
+Este archivo NO forma parte del patrón Factory Method.
+
+Representa un cliente de alto nivel que usa el patrón Factory Method:
+- Necesita procesar envíos de diferentes tipos.
+- No conoce, ni le interesa ni necesita conocer qué medio de transporte concreto hay que crear ni cuál es la lógica del envío en ese caso concreto.
+- Solo necesita que el envío se procese correctamente.
+- Puede trabajar con cualquier tipo de envío futuro sin modificaciones.
+- No se mezcla con responsabilidades de presentación o documentación.
+- Dispone de dos métodos (uno para procesar envíos múltiples y otro para envíos individuales).
+
 #### 🖥️ main.php
 
-Simula al sistema cliente que realiza peticiones a nuestro módulo de envíos.
+Actúa como orquestador y punto de entrada de la demostración del patrón Factory Method.
+
+1. Simula escenarios reales de uso: Define diferentes solicitudes de envío (múltiples e individuales) que podrían llegar al sistema.
+2. Orquesta la interacción: Utiliza el GestorDeEnvios (cliente de alto nivel) para procesar las solicitudes, demostrando cómo se usa el patrón en la práctica.
+3. Prepara los datos para presentación: Combina los resultados del procesamiento con información descriptiva (títulos, descripciones) para que puedan ser mostrados.
+4. Sirve como fuente de datos: Proporciona las variables $resultados y $ventajas que son consumidas por index.php para la presentación web, o las muestra directamente en CLI.
 
 #### 🌐 index.php - 🎨 estilos.css
 
