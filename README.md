@@ -15,7 +15,7 @@ Repositorio creado para explicar el patrón **Factory Method** y su implementaci
     <li>🏭 <a href="#-el-patrón-factory-method">El patrón Factory Method</a>
       <ul>
         <li>💡 <a href="#-entendiendo-la-definición">Entendiendo la definición</a></li>
-        <li>👨🏼‍🔧 <a href="#-aplicando-la-definición-a-un-caso-práctico-creación-de-un-módulo-de-envíos">Aplicando la definición a un caso práctico: creación de un módulo de envíos</a></li>
+        <li>✅ <a href="#-aplicando-la-definición-a-un-caso-práctico-creación-de-un-módulo-de-envíos">Aplicando la definición a un caso práctico: creación de un módulo de envíos</a></li>
         <li>🛂 <a href="#-elementos-obligatorios-que-debe-tener-un-patrón-factory-method">Elementos obligatorios que debe tener un patrón Factory Method</a></li>
         <li>🎯 <a href="#-qué-objetivos-se-buscan-al-aplicar-el-patrón-factory-method">¿Qué objetivos se buscan al aplicar el patrón Factory Method?</a></li>
         <li>👎🏼 <a href="#-siempre-es-conveniente-aplicar-el-patrón-factory-method">¿Siempre es conveniente aplicar el patrón Factory Method?</a></li>
@@ -112,7 +112,7 @@ Por ejemplo, un taladro y un soldador funcionan de maneras diferentes, con méto
 Por ejemplo, un Camión y un Barco funcionan de manera diferente, tienen propiedades y métodos propios, diferentes los del Camión de los del Barco, pero el hecho de implementar la interface *MedioDeTransporte* les obliga a tener un método común, llamado, por ejemplo, *entregarPaquete()*, cuya implementación será diferente en ambos casos, dependiendo de sus métodos y propiedades propios, pero que en definitiva, será un **método común a TODOS los objetos* del tipo *MedioDeTransporte*.
 
 
-### 👨🏼‍🔧 Aplicando la definición a un caso práctico: creación de un módulo de envíos
+### ✅ Aplicando la definición a un caso práctico: creación de un módulo de envíos
 
 Supongamos que tenemos una tienda online, y un cliente compra un determinado artículo y selecciona un método de envío de los que hay disponibles (por camión, por barco o por avión). 
 
